@@ -1,0 +1,15 @@
+<!Doctype html>
+<html=lang="eng">
+
+    <head>
+<title> demo on div</title>
+    </head>
+
+    <body> 
+        <h3> demo on div</h3>
+        <div> <h2> Notepad++</h2>
+        <p>   Our core Java programming tutorial is designed for students and working professionals.
+             Java is an object-oriented, class-based, concurrent, secured and general-purpose computer-programming language. 
+            It is a widely used robust technology.</p></div>
+    </body>
+    </html>
