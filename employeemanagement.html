@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            flex: 1;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            width: 250px;
+            background-color: #444;
+            color: white;
+            padding: 20px;
+            flex-shrink: 0;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px 0;
+        }
+
+        .sidebar a:hover {
+            background-color: #555;
+            padding-left: 10px;
+            transition: all 0.3s;
+        }
+
+        /* Main Content */
+        .main {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .main h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #f8f8f8;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        form input, form select, form button {
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        Employee Management Dashboard
+    </header>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h3>Menu</h3>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#add-employee">Add Employee</a>
+            <a href="#employee-list">Employee List</a>
+            <a href="#settings">Settings</a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main">
+            <h2 id="dashboard">Dashboard Overview</h2>
+            <p>Welcome to the Employee Management Dashboard. Here you can manage employee data efficiently.</p>
+
+            <!-- Add Employee Form -->
+            <h2 id="add-employee">Add Employee</h2>
+            <form id="employeeForm">
+                <input type="text" id="name" placeholder="Employee Name" required>
+                <input type="email" id="email" placeholder="Employee Email" required>
+                <input type="text" id="position" placeholder="Position" required>
+                <select id="department" required>
+                    <option value="">Select Department</option>
+                    <option value="HR">HR</option>
+                    <option value="Development">Development</option>
+                    <option value="Sales">Sales</option>
+                </select>
+                <button type="button" onclick="addEmployee()">Add Employee</button>
+            </form>
+
+            <!-- Employee List -->
+            <h2 id="employee-list">Employee List</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Position</th>
+                        <th>Department</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="employeeTable">
+                    <!-- Dynamic Employee Rows -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 Employee Management System. All rights reserved.
+    </footer>
+
+    <script>
+        let employeeCount = 0;
+
+        function addEmployee() {
+            // Get form values
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const position = document.getElementById("position").value;
+            const department = document.getElementById("department").value;
+
+            if (!name || !email || !position || !department) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            // Add employee row to table
+            const employeeTable = document.getElementById("employeeTable");
+            employeeCount++;
+
+            const row = `
+                <tr>
+                    <td>${employeeCount}</td>
+                    <td>${name}</td>
+                    <td>${email}</td>
+                    <td>${position}</td>
+                    <td>${department}</td>
+                    <td>
+                        <button onclick="deleteEmployee(this)" style="color: red;">Delete</button>
+                    </td>
+                </tr>
+            `;
+            employeeTable.innerHTML += row;
+
+            // Clear form
+            document.getElementById("employeeForm").reset();
+        }
+
+        function deleteEmployee(button) {
+            const row = button.parentElement.parentElement;
+            row.remove();
+        }
+    </script>
+
+</body>
+</html>
