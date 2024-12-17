@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lan="en">
+    <style> 
+    #main{
+    background:rgb(11, 4, 4);
+color:white;
+width:350px;
+margin:auto;
+border-radius:15px;
+padding:25px;
+
+    }
+    #main:hover{
+        box-shadow:0 0 20px rgb(255, 0, 102);
+
+    }
+    span{
+        color:rgb(255, 0, 0);
+    }
+    </style>
+    <head>
+
+    </head>
+    <body>
+        <form>
+        <h3> demo on application form</h3>
+        <div id="main">
+            <h2> <u>Registration form</u> </h2>
+            <form id="frml" action="registration.html" autocomplete="off" > </form>
+            <div> 
+                <label fro="fna"> Fullname</label><span>* </span><br>
+                <input type="text" id="fna" name="fna" required autofocus>
+            </div>
+            <br>
+            <div> 
+                <label for="em">EmailID</label> <span>*</span><br>
+                <input type="email" id="em" name="em" required>
+            </div>
+            <br>
+            <div>
+                <label for="ph">Contact number</label> <span>*</span><br>
+                <input type="number" id="ph" name="ph" min="" max="">
+                </div>
+                <br>
+                <div>
+                    <label for="dob">Date of birth</label><br>
+                    <input type="date" id="dob" name="dob" min="1996-01-01" max="2010-12-31">
+                </div>
+                <br>
+
+                <div>
+                    <label>Gender</label><br>
+                    <input type="radio" id="gl" name="g" value="m" checked>
+                    <label for="g1"> male</label>&nbsp;
+                    
+                    <input type="radio" id="g2" name="g" value="f">
+                    <label for="g2">Female</label> &nbsp; 
+                    <input type="radio" id="g3" name="g" value="o"> <label for="g3">Others</label>
+
+                </div>
+                <br>
+                <div>
+                    <label for="course">Which course?</label>
+                    <select id="course" name="course">
+                        <option value="c"> c program</option>
+                        <option value="c#">c# program </option>
+                        <option value="fsj"> Full Stack Java</option>
+                        <option value=".net"> Full Stack .net</option>
+                    </select>
+                </div><br>
+            <div>
+                <label for="mod">mode of training</label>
+                <select is="mot" name="mot">
+                    <option value="tr"> online training </option>
+                    <option value="of"> offline training</option>
+                    <option value="pt"> project training</option>
+                </select>
+            </div><br>
+            <label for="addr">Full Address </label><br>
+             <textarea id="addr" name="addr" rows="5" cols="25"> </textarea>
+                </div>
+            <br>
+            <div align="center">
+                <button type="submit">Register now</button>
+            </div>
+        </div>
+        </form>
+
+    </body>
+</html>
