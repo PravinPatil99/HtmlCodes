@@ -1,0 +1,15 @@
+/*  example on defining external*/
+
+
+h3{
+    color:chocolate;
+}
+p{
+    color:blue;
+    text-align:justify;
+
+}
+
+
+/*Note : 
+save this file with a name "ExternalDemo1.css" in current location*/
